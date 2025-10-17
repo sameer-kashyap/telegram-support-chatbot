@@ -1,0 +1,533 @@
+{
+  "name": "AI Telegram FAQ Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "6d988586-6ac3-4ac9-988e-7042333d2141",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1072,
+        176
+      ],
+      "webhookId": "390ca63a-5f8d-4906-a7b0-fe3ab28a613c",
+      "credentials": {
+        "telegramApi": {
+          "id": "DOTuBmg4EmIV1Lju",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.normalizedMessage }}",
+              "operation": "contains",
+              "value2": "price"
+            }
+          ]
+        }
+      },
+      "id": "6ea6e7ba-9ee6-4fa7-b0e9-c963b71c555b",
+      "name": "IF (Price?)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -624,
+        176
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY",
+          "mode": "list",
+          "cachedResultName": "BookLeaf Bot FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Keyword",
+              "lookupValue": "price"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8fa95921-29db-4e14-a3d8-9ce5803ffba5",
+      "name": "Fetch Pricing FAQ",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        336,
+        -208
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "nrsLwsX3khrdblIB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.normalizedMessage }}",
+              "operation": "contains",
+              "value2": "publish"
+            }
+          ]
+        }
+      },
+      "id": "d58b43cf-7d06-4d0a-82fb-a0725d9a8f25",
+      "name": "IF (Publish?)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY",
+          "mode": "list",
+          "cachedResultName": "BookLeaf Bot FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Keyword",
+              "lookupValue": "publish"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a915060a-9c4c-4d74-a253-6cd6c6ce22a4",
+      "name": "Fetch Publishing FAQ",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        336,
+        -16
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "nrsLwsX3khrdblIB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.normalizedMessage }}",
+              "operation": "contains",
+              "value2": "royalty"
+            }
+          ]
+        }
+      },
+      "id": "aa3c5642-158e-4809-a734-fdcf6adbfa75",
+      "name": "IF (Royalty?)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -176,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY",
+          "mode": "list",
+          "cachedResultName": "BookLeaf Bot FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Keyword",
+              "lookupValue": "royalty"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f3855799-7926-4344-93bf-0e2fef4abd35",
+      "name": "Fetch Royalty FAQ",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        336,
+        176
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "nrsLwsX3khrdblIB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "a72344b2-6b27-4a95-bd62-056a27032da5",
+      "name": "Merge Responses",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        624,
+        176
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "8122830753",
+        "text": "={{ $json.Answer || $json.content.parts[0].text }}",
+        "additionalFields": {}
+      },
+      "id": "15fdf1e6-79c8-4b34-b0f6-24bc448ccf96",
+      "name": "Send Telegram Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        848,
+        176
+      ],
+      "webhookId": "b50ce0a2-c502-4723-912b-82ac28a37565",
+      "credentials": {
+        "telegramApi": {
+          "id": "DOTuBmg4EmIV1Lju",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the incoming data from the previous node (Telegram Trigger)\nconst item = $input.first();\n\n// Safely get the message text. If the message or text doesn't exist, default to an empty string.\nconst messageText = item.json.message?.text || '';\n\n// Normalize the text: convert to lowercase and remove leading/trailing whitespace.\nconst normalizedText = messageText.toLowerCase().trim();\n\n// Prepare a clean output object with all necessary data for the next nodes.\n// Safely accessing nested properties with ?. prevents errors if parts of the data are missing.\nconst output = {\n  originalMessage: messageText,\n  normalizedMessage: normalizedText,\n  chatId: item.json.message?.chat?.id,\n  userId: item.json.message?.from?.id,\n  userName: item.json.message?.from?.first_name,\n  timestamp: new Date().toISOString()\n};\n\n// Return the clean data in the 'json' key for the next node to use.\nreturn { json: output };\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -848,
+        176
+      ],
+      "id": "251e5e6f-3c80-4c33-9838-08927834b377",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are \"Leafy\" — an AI support assistant for BookLeaf Publishing.\n\nRules for responding:\n\n1. Do NOT greet the user. Do NOT say “Hello”, “Thanks”, “Hey”, or anything similar.\n2. Never use filler phrases like “I can only assist with…” or “Thanks for reaching out.”\n3. If the user asks about anything unrelated to publishing, simply respond with:\n   - “How can I help you with publishing?”\n4. If the question is relevant but the answer is unknown, respond with:\n   - “I don't have that information. Please email kashyapsameer731@gmail.com.”\n5. Otherwise, answer clearly and professionally — like a human support executive.\n\nNow respond to:\n\n\"{{ $('Code in JavaScript').item.json.originalMessage }}\"\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        272,
+        560
+      ],
+      "id": "8f8c9046-3d4d-41b3-8891-616fb67ba367",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "yeMXARKAQW26fhgu",
+          "name": "My Gemini API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY",
+          "mode": "list",
+          "cachedResultName": "BookLeaf Bot FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1N6fxkuQGtoK2LdTZ239_I6YZ_LUEVsmcqNMjXWmaUYY/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Keyword",
+              "lookupValue": "submission"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3fdacd78-b5d8-4656-9f5a-85b10d071dfe",
+      "name": "Fetch Royalty FAQ1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        336,
+        368
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "nrsLwsX3khrdblIB",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.normalizedMessage }}",
+              "operation": "contains",
+              "value2": "submission"
+            }
+          ]
+        }
+      },
+      "id": "59e17e34-f625-47d2-a8ee-54edf95f34b6",
+      "name": "IF (submission?)1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        48,
+        464
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "IF (Price?)": {
+      "main": [
+        [
+          {
+            "node": "Fetch Pricing FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF (Publish?)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (Publish?)": {
+      "main": [
+        [
+          {
+            "node": "Fetch Publishing FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF (Royalty?)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (Royalty?)": {
+      "main": [
+        [
+          {
+            "node": "Fetch Royalty FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF (submission?)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Pricing FAQ": {
+      "main": [
+        [
+          {
+            "node": "Merge Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Publishing FAQ": {
+      "main": [
+        [
+          {
+            "node": "Merge Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Royalty FAQ": {
+      "main": [
+        [
+          {
+            "node": "Merge Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Responses": {
+      "main": [
+        [
+          {
+            "node": "Send Telegram Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Telegram Reply": {
+      "main": [
+        []
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "IF (Price?)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Merge Responses",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "IF (submission?)1": {
+      "main": [
+        [
+          {
+            "node": "Fetch Royalty FAQ1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Royalty FAQ1": {
+      "main": [
+        [
+          {
+            "node": "Merge Responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a6a8e553-3aea-4da2-9bc2-2314cf86ed4a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f01af1f69db79f8ad08a012f71632fab7dd82f0c9e7db5c1d1b362f875b58b3e"
+  },
+  "id": "iGtfjmkxkqoyZZFA",
+  "tags": []
+}
