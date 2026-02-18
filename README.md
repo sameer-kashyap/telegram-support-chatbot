@@ -1,15 +1,41 @@
-# 🤖 AI-Powered Telegram Support Chatbot (n8n + Gemini)
+# 🤖 AI-Powered Telegram Support Chatbot  
+### (n8n + AI + Telegram Bot API)
 
-## 🧩 Problem Statement
-Authors and customers often ask repetitive questions about publishing plans, pricing, royalties, and submission guidelines. Responding manually consumes support time and delays responses.
-
-## ✅ Solution
-A Telegram-based AI chatbot that automatically:
-- Recognizes common FAQs (e.g., “How do I publish my book?”)
-- Gives **instant, structured replies**
-- Falls back to **AI-powered answers** when unsure
+An **AI-powered Telegram chatbot** designed to automate customer support by answering frequently asked questions instantly and intelligently.  
+The bot combines **workflow automation (n8n)** with **AI-powered responses** to reduce manual support effort while maintaining fast and consistent communication.
 
 ---
+
+## 🧩 Problem Statement
+
+Authors and customers frequently ask repetitive questions related to:
+
+- Publishing plans
+- Pricing details
+- Royalties
+- Submission guidelines
+
+Handling these queries manually:
+- Consumes support time
+- Delays responses
+- Reduces operational efficiency
+
+---
+
+## ✅ Solution
+
+This project introduces a **Telegram-based AI chatbot** that:
+
+- Recognizes common FAQ queries
+- Sends instant structured responses
+- Uses AI-generated replies when no FAQ match is found
+- Ensures users always receive a response
+
+The system provides a balance between **automation and intelligence**.
+
+
+## 🔗 Workflow Architecture
+
 
 ## 🧠 Tech Stack
 
